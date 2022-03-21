@@ -11,21 +11,22 @@ public class App {
         Teacher math = new Teacher("Odin", 55, "Math", 5); // учитель
         Student[] group = new Student[2]; // массив учеников
         for (int i = 0; i < group.length; i += 1) {
-            System.out.println(i + 1);
+            //System.out.println(i + 1);
             if (group[i] == null) {
-                group[i] = new Student("Avgust", 25 + i, "Math", 95 + i);
-                System.out.println("Добавлен ученик" + i + " уровень: " + group[i].getLevel() + " :: ");
+                group[i] = new Student("Avgust", 25 + i, "Math", (int) (Math.random() * 10));
+                System.out.print("Добавлен ученик" + i + " уровень: " + group[i].getLevel() + " :: ");
                 //System.out.println(" Klass:" + Arrays.deepToString(group));
             }
         }
-        System.out.println(Arrays.deepToString(group)); // вывод массива учеников
+        //System.out.println(Arrays.deepToString(group)); // вывод массива учеников
         int non = 0;
-        System.out.println("hey we go again?");
+        System.out.println("");
+        System.out.println("hey we go again  0 - no 1 - yes");
         Scanner begin = new Scanner(System.in);
         non = begin.nextInt();
         while (0 != non) {
             // ожидание решения директора
-            System.out.println("Are we start a day?");
+            System.out.println("Are we start a day? true - yes false - no");
             Scanner scanner = new Scanner(System.in);
             boolean in = scanner.nextBoolean();
             dir.setDay(in); // решение директора
@@ -37,10 +38,10 @@ public class App {
                 }
             } else {
                 for (int i = 0; i < group.length; i++) {
-                //    System.out.println("Ученик" + i + " уровень повышен до: " + group[i].getLevel());
+                    System.out.println("Ученик" + i + " уровень: " + group[i].getLevel());
                 }
             }
-            System.out.println("Do you wont more?"); // проверка выхода из цикла
+            System.out.println("Do you wont more? 0 - no 1 - yes"); // проверка выхода из цикла
             System.out.print("");
             non = begin.nextInt();
         }
